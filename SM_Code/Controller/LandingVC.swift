@@ -20,6 +20,11 @@ class LandingVC: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
         callWS()
     }
     
@@ -48,6 +53,12 @@ class LandingVC: UICollectionViewController {
                     self.collectionEmoji.reloadData()
                 }
             }
+        }else{
+            let alert = showAlert(alertMsg: "Opps!! Looks like you're not connected to Internet")
+            
+            self.present(alert, animated: true, completion: { 
+                
+            })
         }
     }
 
